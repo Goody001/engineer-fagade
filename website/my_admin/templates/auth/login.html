@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>login</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		{% load static %}
+
+		{% load compress %}
+		{% load django_bootstrap5 %}
+
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
+		{% bootstrap_messages %}
+
+		{% compress css %}
+		<link rel="stylesheet" type="text/x-scss" href="{% static "css/login.scss" %}"
+		/>
+		{% endcompress %}
+	</head>
+	<body>
+		<main class="wrapper">
+			<form class="login" method="post" action={% url 'my_admin:login' %}>
+				{% csrf_token %}
+
+			  <p class="title">Log in</p>
+			  <input type="text" placeholder="Username" name="username" autofocus/>
+			  <i class="fa fa-user"></i>
+			  <input type="password" placeholder="Password" name="password" />
+			  <i class="fa fa-key"></i>
+			  <a href="#">Forgot your password?</a>
+			  <button type="submit">
+				<i class="spinner"></i>
+				<span class="state">Log in</span>
+			  </button>
+			</form>
+
+		</main>
+		<script src="{% static "js/login.js" %}"></script>
+	</body>
+</html>

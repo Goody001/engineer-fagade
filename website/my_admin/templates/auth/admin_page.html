@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>admin page</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		{% load static %}
+
+		{% load django_bootstrap5 %}
+
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
+		{% bootstrap_messages %}
+		{% load humanize %}
+
+
+	</head>
+	<body class="container-fluid p-3">
+		{% if user.is_authenticated %}
+		<nav class="d-flex shadow-sm p-2 justify-content-between">
+			<div class="header--logo">
+				<h2>GABRIEL FAGADE</h2>
+			</div>
+			<button type="button" class="btn btn-outline-warning">
+				<a class="text-decoration-none text-dark" href={% url 'my_admin:logout' %}>SignOut</a>
+			</button>
+		</nav>
+		<main class="mt-4">
+			<section class="">
+				<h3 class='text-primary'>Hello Engineer Fagade</h3>
+				<p>This is your admin page and you are logged in with username, {{user.username}}!</p>
+			</section>
+			<section class="container container-md
+			border border-2 border-info rounded
+			p-3 mb-4">
+				<form class="mb-3 d-grid gap-1 container" method="post" enctype="multipart/form-data">
+					<h2>Add a new newsletter</h2>
+					{% csrf_token %}
+					{{ form }}
+					<button type="submit" class="btn btn-warning mt-2 text-white">Submit</button>
+				</form>
+			</section>
+
+			<section class="container container-md
+			border border-2 border-info rounded
+			p-3">
+				<h2 class="mb-3">Newsletters added so far</h2>
+				{% for newsletter in page_obj %}
+				<div class="border border-1 rounded p-3 mb-2 shadow-sm">
+					<h3 class="text-warning">{{newsletter.title}}</h3>
+					<p>Created: {{newsletter.created | naturaltime}}</p>
+					<p>Last updated: {{newsletter.updated | naturaltime}}</p>
+				</div>
+				{% endfor %}
+				<div class="pagination justify-content-center">
+					<span class="step-links">
+						{% if page_obj.has_previous %}
+							<a href="?page=1">&laquo; first</a>
+							<a href="?page={{ page_obj.previous_page_number }}">previous</a>
+						{% endif %}
+
+						<span class="current">
+							Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+						</span>
+
+						{% if page_obj.has_next %}
+							<a href="?page={{ page_obj.next_page_number }}">next</a>
+							<a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+						{% endif %}
+					</span>
+				</div>
+			</section>
+
+
+			{% comment %} <script src="{% static "js/login.js" %}"></script> {% endcomment %}
+		</main>
+		{% endif %}
+	</body>
+</html>

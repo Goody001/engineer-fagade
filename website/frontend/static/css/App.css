@@ -1,0 +1,233 @@
+@import "index.css";
+@import "Pagination.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Permanent+Marker&display=swap');
+body {
+  color: #000;
+}
+nav, .header--nav-links, .header--social-links {
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  align-items: center;
+  background-color: #FFF;
+  justify-content: space-between;
+  padding: 1% 4%;
+}
+
+.header--logo {
+  margin-right: auto;
+}
+
+nav li {
+  list-style: none;
+  margin-right: 1rem;
+  text-decoration: none;
+  /* word-break: keep-all; */
+}
+.header--social-links a {
+  color: #111;
+  margin-right: 1rem;
+}
+.header--social-links a:hover{
+  border: solid #111 1px;
+  border-radius: 5px;
+  border-end-end-radius: 10%;
+  color: #FFD030;
+  padding: 4px;
+}
+.header--nav-links a {
+  color: #111;
+}
+.header--nav-links a:focus{
+  color: #dc143c;
+}
+
+nav ul {
+  display: flex;
+}
+
+/* Newsletter */
+.newsletter {
+  margin-top: -2rem;
+
+}
+.newsletter--banner {
+  padding: 0 10rem;
+  margin-bottom: 8vh;
+}
+.newsletter--title {
+  align-items: flex-end;
+  display: flex;
+  margin-bottom: 5vh;
+}
+
+.newsletter--title h1 {
+  color: #000;
+  font-family: 'Itim', cursive;
+  font-size: 6rem;
+  font-weight: 200;
+}
+.newsletter--title p {
+  font-size: calc((1.4 - 1) * 1.2vw + 1rem);
+  font-weight: 500;
+}
+.newsletter--title span {
+  color: #ffd02f;
+  display: block  ;
+  font-family: 'Permanent Marker', cursive;
+}
+.newsletter--title img {
+  display: block;
+}
+.newsletter input, .newsletter button {
+  border: #000 solid 1px;
+  border-radius: 25px;
+  font-size: 1.4rem;
+  /* height: 3vh; */
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.newsletter input {
+  background: none;
+  width: 20%;
+  padding: 10px 2vw;
+  margin-right: 20px;
+}
+.newsletter input::placeholder {
+  color: #000;
+  font-weight: lighter;
+}
+.newsletter button {
+  background-color: #000;
+  color: #ffd02f;
+}
+.search {
+  margin-bottom: 5vh;
+}
+.search .fa-icons {
+  color: #888;
+  padding: 15px;
+  position: absolute;
+}
+.search .input-field {
+  border: solid 1px #999;
+  border-radius: 10px;
+  padding-left: 15%;
+  text-align: left;
+  width: 100%;
+}
+.search .input-field::placeholder {
+  color: #888;
+}
+
+/* Issues */
+.newsletter--issues {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+.newsletter--issues h3 {
+  font-size: 1.8rem;
+}
+.newsletter--issues article {
+  display: flex;
+  border: solid 2px #000;
+  border-radius: 20px;
+  padding: 20px 10px;
+  margin-bottom: 3vh;
+  width: 70%;
+}
+
+.newsletter--issues article img {
+  height: 18rem;
+  margin-right: 1rem;
+  width: 25rem;
+}
+
+
+/* Footer */
+
+footer {
+  /* background-color: #225; */
+  display: flex;
+  padding: 20px 8vw;
+
+}
+
+.footer--brand {
+  margin-right: 10vw;
+}
+.footer--brand ul{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #FFD030; */
+  margin: 0;
+  padding: 0  ;
+}
+
+.footer--brand ul a {
+  border: #111 solid 1px;
+  border-radius: 5px;
+  padding: 6px 9px;
+}
+
+.footer--links ul{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer--copyrights li{
+ list-style: none;
+ text-align: center;
+}
+
+
+
+
+
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
